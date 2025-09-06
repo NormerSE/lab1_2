@@ -12,10 +12,14 @@ for i in range(n):
 # Вывод изначального массива
 print("Изначальный массив:", numbers)
 
-# Сортировка пузырьком по возрастанию
+# Запрос направления сортировки
+direction = input("Выберите направление сортировки (asc для возрастания, desc для убывания): ").strip().lower()
+
+# Сортировка пузырьком
 for i in range(n):
     for j in range(0, n-i-1):
-        if numbers[j] > numbers[j+1]:
+        if (direction == "asc" and numbers[j] > numbers[j+1]) or \
+           (direction == "desc" and numbers[j] < numbers[j+1]):
             numbers[j], numbers[j+1] = numbers[j+1], numbers[j]
 
 # Вывод отсортированного массива
